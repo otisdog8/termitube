@@ -1,14 +1,8 @@
-mps-youtube
+termitube
 ===========
 
-.. image:: https://img.shields.io/pypi/v/mps-youtube.svg
-    :target: https://pypi.python.org/pypi/mps-youtube
-.. image:: https://img.shields.io/pypi/dm/mps-youtube.svg
-    :target: https://pypi.python.org/pypi/mps-youtube
-.. image:: https://img.shields.io/pypi/wheel/mps-youtube.svg
-    :target: http://pythonwheels.com/
-    :alt: Wheel Status
-
+NOTE: THIS REPOSITORY IS A FORK OF `mps-youtube <https://github.com/mps-youtube/mps-youtube/>`_ as mps-youtube has been unmaintained for almost a year now. 
+===========
 
 Features
 --------
