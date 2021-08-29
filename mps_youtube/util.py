@@ -356,7 +356,6 @@ def parse_datetime(yt_date_time, as_datetime):
 
 def yt_datetime(yt_date_time):
     """ Return a time object, locale formated date string and locale formatted time string. """
-
     time_obj = parse_datetime(yt_date_time, as_datetime=False)
     locale_date = time.strftime("%x", time_obj)
     locale_time = time.strftime("%X", time_obj)
