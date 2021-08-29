@@ -341,9 +341,22 @@ def real_len(u, alt=False):
     return int(round(sum(widths.get(ueaw(char), 1) for char in u)))
 
 
+def parse_datetime(yt_date_time, as_datetime):
+    strptime = datetime.strptime if as_datetime else time.strptime
+
+    formats = ["%Y-%m-%dT%H:%M:%S.%fZ", "%Y-%m-%dT%H:%M:%SZ"]
+    last_error = None
+    for fmt in formats:
+        try:
+            return strptime(yt_date_time, fmt)
+        except ValueError as e:
+            last_error = e
+
+    raise last_error
+
 def yt_datetime(yt_date_time):
     """ Return a time object, locale formated date string and locale formatted time string. """
-    time_obj = time.strptime(yt_date_time, "%Y-%m-%dT%H:%M:%SZ")
+    time_obj = parse_datetime(yt_date_time, as_datetime=False)
     locale_date = time.strftime("%x", time_obj)
     locale_time = time.strftime("%X", time_obj)
     # strip first two digits of four digit year
@@ -353,7 +366,8 @@ def yt_datetime(yt_date_time):
 
 def yt_datetime_local(yt_date_time):
     """ Return a datetime object, locale converted and formated date string and locale converted and formatted time string. """
-    datetime_obj = datetime.strptime(yt_date_time, "%Y-%m-%dT%H:%M:%SZ")
+    # datetime_obj = datetime.strptime(yt_date_time, "%Y-%m-%dT%H:%M:%SZ")
+    datetime_obj = parse_datetime(yt_date_time, as_datetime=True)
     datetime_obj = utc2local(datetime_obj)
     locale_date = datetime_obj.strftime("%x")
     locale_time = datetime_obj.strftime("%X")
