@@ -80,7 +80,7 @@ Search results can be customised to display additional fields and ordered by var
 This configuration was set up using the following commands::
 
     set order views
-    set columns user:14 date comments rating likes dislikes category:9 views
+    set columns user:14 date comments rating likes category:9 views
 
 Type ``help config`` for help on configuration options
 

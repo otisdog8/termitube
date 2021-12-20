@@ -491,9 +491,6 @@ def get_tracks_from_json(jsons):
             # instantiate video representation in local model
             cursong = Video(ytid=ytid, title=title, length=duration)
             likes = int(stats.get('likeCount', 0))
-            dislikes = int(stats.get('dislikeCount', 0))
-            #XXX this is a very poor attempt to calculate a rating value
-            rating = 5.*likes/(likes+dislikes) if (likes+dislikes) > 0 else 0
             category = snippet.get('categoryId')
             publishedlocaldatetime = util.yt_datetime_local(snippet.get('publishedAt', ''))
 
@@ -505,7 +502,6 @@ def get_tracks_from_json(jsons):
                                                        '[!!!]')}).get('title',
                                                                       '[!]'),
                 length=str(util.fmt_time(cursong.length)),
-                rating=str('{}'.format(rating))[:4].ljust(4, "0"),
                 uploader=snippet.get('channelId'),
                 uploaderName=snippet.get('channelTitle'),
                 category=category,
@@ -513,7 +509,6 @@ def get_tracks_from_json(jsons):
                 uploaded=publishedlocaldatetime[1],
                 uploadedTime=publishedlocaldatetime[2],
                 likes=str(num_repr(likes)),
-                dislikes=str(num_repr(dislikes)),
                 commentCount=str(num_repr(int(stats.get('commentCount', 0)))),
                 viewCount=str(num_repr(int(stats.get('viewCount', 0)))))
 
