@@ -263,7 +263,6 @@ def video_info(num):
         out += "\nView count : " + str(p.viewcount)
         out += "\nRating     : " + str(p.rating)[:4]
         out += "\nLikes      : " + str(p.likes)
-        out += "\nDislikes   : " + str(p.dislikes)
         out += "\nCategory   : " + str(p.category)
         out += "\nLink       : " + "https://youtube.com/watch?v=%s" % p.videoid
         if config.SHOW_QRCODE.get:

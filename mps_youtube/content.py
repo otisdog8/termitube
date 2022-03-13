@@ -179,7 +179,6 @@ def _get_user_columns():
                 "time": dict(name="uploadedTime", size=11, heading="Time"),
                 "user": dict(name="uploaderName", size=10, heading="User"),
                 "likes": dict(name="likes", size=4, heading="Like"),
-                "dislikes": dict(name="dislikes", size=4, heading="Dslk"),
                 "category": dict(name="category", size=8, heading="Category"),
                 "ytid": dict(name="ytid", size=12, heading="Video ID")}
 
